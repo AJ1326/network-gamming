@@ -1,0 +1,18 @@
+<div class="row mt-50">
+  <div class="col header__mobile setting-actions justify-content-between d-flex h-70 align-items-center">
+    <h2 class="text-cyan m-0">Battle of Champions</h2>
+    <div>
+      <button class="btn-add ml-4" (click)="openAddPlayerForm('add')">
+        <i class="fa fa-plus"></i>
+        Join
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row game__wrapper">
+  <div class="col-12 game_box__container">
+    <div class="table_wrapper my-5 mx-3 lead-table-padding">
+      <app-leader-board></app-leader-board>
+    </div>
+  </div>
+</div>

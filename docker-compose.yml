@@ -1,0 +1,13 @@
+version: '3.5' # We use version 3.5 syntax
+services: # Here we define our service(s)
+  ngamming: # The name of the service
+    container_name: network-gamming # Container name
+    build:
+      context: .
+      dockerfile: Dockerfile # Location of our Dockerfile
+    volumes: # Volume binding
+      - '.:/ng-app'
+    ports:
+      - '4200:4200' # Port mapping
+    command: >
+      bash -c "npm run build -s && npx http-server ./dist -p 4200"

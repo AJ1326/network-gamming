@@ -1,0 +1,11 @@
+<div [ngSwitch]="modalType">
+  <div *ngSwitchCase="'add-player'">
+    <app-add-player [title_tag]="title" [formType]="formType" [form_data]="formData"></app-add-player>
+  </div>
+  <div *ngSwitchCase="'add-player-success'">
+    <app-player-success [title_tag]="title" [formType]="formType" [gameData]="gameData"></app-player-success>
+  </div>
+  <div *ngSwitchCase="'open-assignment'">
+    <app-frontend-assignnment [title_tag]="title"></app-frontend-assignnment>
+  </div>
+</div>

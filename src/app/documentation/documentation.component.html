@@ -1,0 +1,59 @@
+<div class="row mt-50">
+  <div class="col setting-actions justify-content-between d-flex h-70 align-items-center">
+    <h2 class="text-cyan m-0">Documentation</h2>
+    <div>
+      <button class="btn-add ml-4" (click)="openDocumentation()"><i class="fa fa-file-text-o"></i>Documentation</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="table_wrapper my-5 mx-3 search-centre about-me">
+      You can click the above link for documentation. It will give you brief about the: <br />
+      1. Project structure<br />
+      2. Components and modules<br />
+      3. Shells<br />
+      4. Different libraries that are used.<br />
+      5. How to run the project and other details.<br />
+    </div>
+    <div class="table_wrapper my-5 mx-3 search-centre about-me">
+      <h1>Problems that I faced:</h1>
+      <br />
+      1. It initially took me some time to understand what I have to do, whether I have to recreate the game and what
+      all this type means. I end up reading the what the game is doing for more than 10 times until I realised that it
+      doesn't matter. :)<br />
+      2. Never used GO but always heard about it, finally get the chance to have an overview about the technology.<br />
+      3. It took me couple of design iterations. I want it to be simple and minimlistic and at the same time informative
+      and aspiring to be a part of the game.<br />
+      4. CORS issue was a headache ended up creating proxy.conf to hit the api of the backend.<br />
+      5. I never used docker compose. Usually use docker with GCP. So, It was kinda cool to create different services
+      and running both app/backend from single command.<br />
+      6. Getting my head around webSocket and it's implemenation had taken me to the journey of change detection in
+      Angular.<br />
+      7. I used to write snapshot test cases and manual test cases in the form of gherkins. So, It was exciting to learn
+      about it.<br />
+      8. I think the game is not working right, Sometime I faced issue where round are getting over little early. But,
+      I'm not bale to reproduce the same now.<br />
+      <span class="test-cases"
+        >I haven't added test cases in docker run. You can simply run the test cases by running `npm run test`.</span
+      >
+      And the rest of the things I have updated in README.md and Documentation.
+    </div>
+    <div class="table_wrapper my-5 mx-3 search-centre about-me">
+      In totatality it was a great learning experience. I get a chance to dirty my hands in different areas. I loved it.
+      <br />
+      My focus was on building and dividing the application into smaller components consiedring shallow domming. I
+      created smaller sub-components that can be easy to use and accessible throughout the project like
+      spinner/loader/modals which provide consistency and help you in fast developement on later stages. <br />
+      My design is pretty simple but kinda exciting to be a part off. And I hope you guys enjoy the Flip Coin game.
+      Yeah, I know and I will going to come up with some super cool name.<br />
+    </div>
+    <div class="table_wrapper my-5 mx-3 search-centre about-me">
+      What are you waiting for ?? <br />
+      Join and be a part of NGamming. Click the below button to get started.
+      <div class="game_started__container mt-2 mb-2">
+        <button (click)="startGame()" class="btn-save w-150 h-45 ft-18">Let's begin !!!</button>
+      </div>
+    </div>
+  </div>
+</div>

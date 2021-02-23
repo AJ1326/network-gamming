@@ -1,0 +1,24 @@
+<div class="pr-top-nav-bar">
+  <div class="d-flex align-items-flex-start">
+    <a routerLink="/" class="d-inline-block">
+      <img src="../../../assets/images/logo/logo.png" class="pr-logo-top" />
+    </a>
+    <a routerLink="/about" routerLinkActive="active" class="d-inline-block d-flex-centre ml-80 ft-16"> About </a>
+    <a routerLink="/documentation" routerLinkActive="active" class="d-inline-block d-flex-centre ml-40 ft-16">
+      Documentation
+    </a>
+  </div>
+  <div class="hide_sidenav__mobile">
+    <div ngbDropdown class="d-inline-block btn-user-account mx-4" placement="bottom-right">
+      <button class="" id="dropdownForm1" ngbDropdownToggle>
+        <img src="../../../assets/images/core/user-avatar.svg" class="user-avatar" />
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+        <a class="active">
+          <span class="org_dot"></span>
+          (NG) NumberGame
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

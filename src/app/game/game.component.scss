@@ -1,0 +1,29 @@
+.mt-50 {
+  margin-top: 50px;
+}
+
+.game_box__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.lead-table-padding {
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.game__wrapper {
+  background: linear-gradient(0deg, #1f283314, rgb(12 12 12 / 3%)),
+    url(https://cdn.dribbble.com/users/64349/screenshots/14551026/media/311e10b735ceded891f51e8bdaa09be6.jpg);
+  // background-image: url(https://cdn.dribbble.com/users/64349/screenshots/14551026/media/311e10b735ceded891f51e8bdaa09be6.jpg);
+  background-size: cover;
+  height: calc(100vh - 120px);
+}
+
+@media screen and (max-width: 700px) {
+  .lead-table-padding {
+    padding: 0;
+  }
+}

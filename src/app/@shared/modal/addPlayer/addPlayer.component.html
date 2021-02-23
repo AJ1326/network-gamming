@@ -1,0 +1,67 @@
+<app-spinner></app-spinner>
+<p-toast></p-toast>
+<div>
+  <div class="modal-header pr-modal-header">
+    <h4 class="modal-title font-weight-bold text-black-1">{{ title_tag }}</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addPlayerForm" novalidate>
+      <div class="col-12 error-mssg" *ngIf="error">
+        <label for="name" class="text-danger">{{ error }}</label>
+      </div>
+      <div class="row mt-3">
+        <div class="col-4">
+          <label for="name" class="text-black-1">Name</label>
+        </div>
+        <div class="input-group col-8">
+          <input
+            id="name"
+            class="form-control pr-input"
+            formControlName="name"
+            placeholder="Please enter the user name."
+            name="name"
+            type="text"
+          />
+          <div class="col-12 error-mssg" *ngIf="(f.name.touched || submitted) && f.name.errors">
+            <label for="name" class="text-danger" *ngIf="f.name.errors.required">*Name is required.</label>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-4">
+          <label for="email" class="text-black-1">First coin</label>
+        </div>
+        <div class="input-group col-8">
+          <select class="custom-select pr-input" (change)="changeNumber($event, 'first')" formControlName="first">
+            <option [ngValue]="null" [selected]="true" disabled>Please add your first number.</option>
+            <option *ngFor="let nmb of selectNumberDataList" [ngValue]="nmb">{{ nmb }}</option>
+          </select>
+          <div class="col-12 error-mssg" *ngIf="(f.first.touched || submitted) && f.first.errors">
+            <label for="first" class="text-danger" *ngIf="f.first.errors.required">*This field is required.</label>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-4">
+          <label for="phone_number" class="text-black-1">Second coin</label>
+        </div>
+        <div class="input-group col-8">
+          <select class="custom-select pr-input" (change)="changeNumber($event, 'second')" formControlName="second">
+            <option [ngValue]="null" selected="true" disabled>Please add your second number.</option>
+            <option *ngFor="let nmb of selectNumberDataList" [ngValue]="nmb">{{ nmb }}</option>
+          </select>
+          <div class="col-12 error-mssg" *ngIf="(f.second.touched || submitted) && f.second.errors">
+            <label for="second" class="text-danger" *ngIf="f.second.errors.required">*This field is required.</label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer border-0 pr-modal-footer">
+    <button class="btn-cancel ml-4 w-100" (click)="activeModal.close(false)" ngbAutoFocus>Cancel</button>
+    <button type="addPlayer" class="btn-save ml-4 w-100" *ngIf="!isLoading" (click)="save()">Submit</button>
+    <button class="btn-save ml-4 w-100" disabled *ngIf="isLoading">
+      <i class="fa fa-spinner fa-spin" style="font-size: 16px"></i>
+    </button>
+  </div>
+</div>

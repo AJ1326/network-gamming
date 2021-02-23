@@ -1,0 +1,65 @@
+<p-toast></p-toast>
+<app-spinner></app-spinner>
+<article class="leaderboard">
+  <header>
+    <img class="leaderboard__icon" src="../../../assets/images/leader-board/leader_board_header.svg" />
+    <h1 class="leaderboard__title">
+      <span class="leaderboard__title--top">
+        {{ gameEvents ? gameEvents.type : 'Flip Coin' }}
+      </span>
+      <span *ngIf="gameEvents?.data?.round; else show_round_detail" class="leaderboard__title--bottom">
+        {{ gameEvents.data['round'] }}
+      </span>
+      <ng-template #show_round_detail>
+        <span class="leaderboard__text_coin">At the games end we shall see who gaines.</span>
+      </ng-template>
+    </h1>
+  </header>
+  <div class="leaderboard__container" *ngIf="checkNullValidator(isSocketWorking) !== null && gameEvents?.type">
+    <div [ngSwitch]="gameEvents?.type">
+      <div *ngSwitchCase="playerStatesEnumes.PLAYED_ROUND">
+        <main class="leaderboard__profiles">
+          <article
+            class="leaderboard__profile"
+            *ngFor="let player of gameEvents.data['leader_board']; let i = index"
+            [attr.data-index]="i"
+          >
+            <img
+              src="https://ui-avatars.com/api/?name={{ player.name }}"
+              alt="Mark Zuckerberg"
+              class="leaderboard__picture"
+            />
+            <span class="leaderboard__name">{{ player['name'] }}</span>
+            <span class="leaderboard__value"
+              >{{ player['score'] }}<span>L{{ player['lower'] }}/U{{ player['upper'] }}</span></span
+            >
+          </article>
+        </main>
+      </div>
+      <div class="waiting_player__container" *ngSwitchCase="gameStatesEnumes.GAME_WAITING">
+        <ng-container>
+          <div class="waiting_for_players">
+            <img src="../../../assets/images/leader-board/waiting_for_players.svg" />
+            <span>Waiting for players to enter into the arena !!!</span>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <ng-container
+      *ngIf="
+        gameEvents.type === gameStatesEnumes.COUNTDOWN_STARTED || gameEvents.type === gameStatesEnumes.COUNTING_DOWN
+      "
+    >
+      <div class="countdown__container">
+        <div id="countdown">
+          <div id="countdown-number">
+            {{ gameEvents.data }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div *ngIf="isSocketStopped">
+    <app-server-error></app-server-error>
+  </div>
+</article>
